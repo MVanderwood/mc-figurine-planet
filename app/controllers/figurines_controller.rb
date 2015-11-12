@@ -1,7 +1,7 @@
 class FigurinesController < ApplicationController
 
   def home
-
+    @title = "Welcome to Figurine Planet"
   end
 
   def figurine1
