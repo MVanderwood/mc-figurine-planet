@@ -1,5 +1,3 @@
-<div class="main">
-  <div class="home">
     <h1>Welcome to Figurine World friends!<h1>
     
     <h3>Check out our wonderful figurines below:</h3>
@@ -10,12 +8,8 @@
       <li>Price: $<%= item.price%> </li>
       <li>Description: </li>
       <p class="item_description"><%= item.description %></p>
-      <a href="">Click here to buy!</a>
+      <a href="/figurine/<%= item.id %>/buy">Click here to buy!</a><br>
+      <a href="/figurine/<%= item.id %>"><%= item.name %></a>
+
     </ul>
     <% end %>
-
-
-      <a href="http://localhost:3000/figurine1" class="btn btn-info" role="button">Click to Buy!</a>
-
-  </div>
-</div>
