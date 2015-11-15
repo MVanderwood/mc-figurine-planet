@@ -25,4 +25,18 @@ class FigurinesController < ApplicationController
       image: params[:image]
       })
   end
+
+  def edit
+    @figurine = Figurine.find_by(id: params[:id])
+  end
+
+  def update
+    recipe = Recipe.find_by(id: params[:id])
+    recipe.updated({
+      name: params[:name],
+      price: params[:price],
+      description: params[:description],
+      image: params[:image]
+      })
+    redirect_to "/figurine/#{r}"
 end
