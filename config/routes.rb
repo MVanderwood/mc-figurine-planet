@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   post '/figurines' => 'figurines#create'
   get '/figurine/:id' => 'figurines#show'
   get '/figurine/:id/buy' => 'figurines#buy' 
-  get '/figurines/:id/edit' => 'figurines#edit'
-  patch '/figurines/:id' => 'figurines#update'
+  get '/figurine/:id/edit' => 'figurines#edit'
+  patch '/figurine/:id' => 'figurines#update'
+  delete '/figurine/:id' => 'figurines#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

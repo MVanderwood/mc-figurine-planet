@@ -4,6 +4,7 @@
 
     <% Figurine.all.each do |item| %>
     <p><b><%= item.name %></b></p>
+    <img src="<%= item.image %>">
     <ul>
       <li>Price: $<%= item.price%> </li>
       <li>Description: </li>

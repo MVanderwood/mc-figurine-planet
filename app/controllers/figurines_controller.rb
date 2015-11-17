@@ -9,8 +9,7 @@ class FigurinesController < ApplicationController
   end
 
   def show
-    figurine_id = params[:id]
-    @figurine = Figurine.find_by(id: figurine_id)
+    @figurine = Figurine.find_by(id: params[:id])
   end
 
   def new
@@ -24,6 +23,7 @@ class FigurinesController < ApplicationController
       description: params[:description],
       image: params[:image]
       })
+
   end
 
   def edit
@@ -31,12 +31,20 @@ class FigurinesController < ApplicationController
   end
 
   def update
-    recipe = Recipe.find_by(id: params[:id])
-    recipe.updated({
+    figurine = Figurine.find_by(id: params[:id])
+    figurine.update({
       name: params[:name],
       price: params[:price],
       description: params[:description],
       image: params[:image]
       })
-    redirect_to "/figurine/#{r}"
+    redirect_to "/figurine/#{figurine.id}"
+  end
+
+  def destroy
+    figurine = Figurine.find_by(id: params[:id])
+    figurine.destroy
+    redirect_to "/figurines"
+  end
+
 end
