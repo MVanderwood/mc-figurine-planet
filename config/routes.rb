@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   get '/' => 'figurines#index'
   get '/figurines' => 'figurines#index'
-  get '/figurine/new' => 'figurines#new'
+  get '/figurines/new' => 'figurines#new'
   post '/figurines' => 'figurines#create'
-  get '/figurine/:id' => 'figurines#show'
-  get '/figurine/:id/buy' => 'figurines#buy' 
-  get '/figurine/:id/edit' => 'figurines#edit'
-  patch '/figurine/:id' => 'figurines#update'
-  delete '/figurine/:id' => 'figurines#destroy'
+  get '/figurines/:id' => 'figurines#show'
+  get '/figurines/:id/buy' => 'figurines#buy' 
+  get '/figurines/:id/edit' => 'figurines#edit'
+  patch '/figurines/:id' => 'figurines#update'
+  delete '/figurines/:id' => 'figurines#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

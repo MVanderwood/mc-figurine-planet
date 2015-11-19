@@ -1,16 +1,24 @@
-    <h1>Welcome to Figurine World friends!<h1>
-    
-    <h3>Check out our wonderful figurines below:</h3>
+<h1>Welcome to Figurine World friends!<h1>
 
-    <% Figurine.all.each do |item| %>
-    <p><b><%= item.name %></b></p>
-    <img src="<%= item.image %>">
-    <ul>
-      <li>Price: $<%= item.price%> </li>
-      <li>Description: </li>
-      <p class="item_description"><%= item.description %></p>
-      <a href="/figurine/<%= item.id %>/buy">Click here to buy!</a><br>
-      <a href="/figurine/<%= item.id %>"><%= item.name %></a>
+<h3>Check out our wonderful figurines below:</h3>
 
-    </ul>
-    <% end %>
+<div class="row">
+  <% Figurine.all.each do |item| %>
+    <div class="col-md-4">
+      <div class="well">
+        <p><b><%= item.name %></b></p>
+        <img class="main_page" src="<%= item.image %>">
+        <ul>
+          <li>Price: $<%= item.price_with_tax %> </li>
+          <li>Description: </li>
+          <p class="item_description"><%= item.description %></p>
+          <a href="/figurines/<%= item.id %>/buy">Click here to buy!</a><br>
+          <a href="/figurines/<%= item.id %>"><%= item.name %></a>
+        </ul>
+      </div>
+    </div> 
+  <% end %>  
+</div>
+
+
+

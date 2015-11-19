@@ -1,3 +1,14 @@
 // Place all the styles related to the figurines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body {
+  font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+  background: url("tree_bark.png");  
+}
+
+img {
+  min-width: 100%;
+  width: 100%;
+}

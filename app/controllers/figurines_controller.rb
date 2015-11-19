@@ -10,6 +10,7 @@ class FigurinesController < ApplicationController
 
   def show
     @figurine = Figurine.find_by(id: params[:id])
+    flash[:success] = @figurine.discount
   end
 
   def new
@@ -23,7 +24,6 @@ class FigurinesController < ApplicationController
       description: params[:description],
       image: params[:image]
       })
-
   end
 
   def edit
