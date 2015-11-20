@@ -11,12 +11,12 @@ class Figurine < ActiveRecord::Base
   end
 
   def tax
-    (price.to_f * SALES_TAX).round(2)
+    (price * SALES_TAX).round(2)
 
   end
 
   def price_with_tax
-    (price.to_f + tax).to_s
+    (price + tax).to_s
   end
 
 end
