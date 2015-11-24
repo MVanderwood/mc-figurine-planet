@@ -1,12 +1,15 @@
-
-<%= image_tag "#{@figurine.image}" %>
+<% @figurine.images.each do |image| %>
+  <%= image_tag "#{image.url}" %>
+<% end %>
 <ul>
   <li><%= @figurine.name %></li>
   <li>$<%= @figurine.price_with_tax %></li>
   <li><%= @figurine.description %></li>
+  <li><%= @figurine.supplier.name %></li>
 </ul>
 <a href="/figurines">Back to figurines</a>
 <p></p>
 <%= link_to "Edit the info for this figurine", "/figurine/#{@figurine.id}/edit" %>
 <p></p>
 <%= link_to "Delete this figurine (oh noes O:)", "/figurine/#{@figurine.id}", method: :delete %>
+

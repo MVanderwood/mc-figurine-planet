@@ -1,4 +1,7 @@
 class Figurine < ActiveRecord::Base
+  belongs_to :supplier
+  has_many :images
+  
   SALES_TAX = 0.09
   DISCOUNT_THRESHOLD = 2
 

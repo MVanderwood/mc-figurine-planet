@@ -1,16 +1,26 @@
 class FigurinesController < ApplicationController
 
-  def home
-    @title = "Welcome to Figurine Planet"
-  end
-
   def index
-
+    if params[:search] 
+      @figurines = Figurine.where("name LIKE ?", "%#{params[:search]}%")
+    elsif params[:sort_by] == "discount"
+      @figurines = Figurine.where("price <= ?", 10)
+    elsif params[:sort_by] && params[:sort_order]
+      @figurines = Figurine.order(params[:sort_by] => params[:sort_order])
+    elsif params[:sort_by]
+      @figurines = Figurine.order(params[:sort_by])
+    else
+      @figurines = Figurine.all
+    end
   end
 
   def show
-    @figurine = Figurine.find_by(id: params[:id])
-    flash[:success] = @figurine.discount
+    if params[:id] == "random"
+      @figurine = Figurine.find_by(id: rand(1..Figurine.count))
+    else
+      @figurine = Figurine.find_by(id: params[:id])
+      flash[:success] = @figurine.discount
+    end
   end
 
   def new

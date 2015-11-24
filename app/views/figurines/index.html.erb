@@ -3,17 +3,17 @@
 <h3>Check out our wonderful figurines below:</h3>
 
 <div class="row">
-  <% Figurine.all.each do |item| %>
+  <% @figurines.each do |figurine| %>
     <div class="col-md-4">
       <div class="well">
-        <p><b><%= item.name %></b></p>
-        <img class="main_page" src="<%= item.image %>">
+        <p><b><%= figurine.name %></b></p>
+        <%= image_tag "#{figurine.images[0].url}" %>
         <ul>
-          <li>Price: $<%= item.price_with_tax %> </li>
+          <li>Price: $<%= figurine.price_with_tax %> </li>
           <li>Description: </li>
-          <p class="item_description"><%= item.description %></p>
-          <a href="/figurines/<%= item.id %>/buy">Click here to buy!</a><br>
-          <a href="/figurines/<%= item.id %>"><%= item.name %></a>
+          <p class="item_description"><%= figurine.description %></p>
+          <a href="/figurines/<%= figurine.id %>/buy">Click here to buy!</a><br>
+          <a href="/figurines/<%= figurine.id %>"><%= figurine.name %></a>
         </ul>
       </div>
     </div> 
