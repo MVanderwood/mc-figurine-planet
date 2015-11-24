@@ -28,11 +28,14 @@ class FigurinesController < ApplicationController
   end
 
   def create
-    Figurine.create({
+    figurine = Figurine.create({
       name: params[:name],
       price: params[:price],
       description: params[:description],
-      image: params[:image]
+      })
+    Image.create({
+      url: param[:image],
+      figurine_id: figurine.id
       })
   end
 
@@ -52,8 +55,7 @@ class FigurinesController < ApplicationController
   end
 
   def destroy
-    figurine = Figurine.find_by(id: params[:id])
-    figurine.destroy
+    Figurine.find_by(id: params[:id]).destroy
     redirect_to "/figurines"
   end
 

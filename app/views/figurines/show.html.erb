@@ -7,6 +7,8 @@
   <li><%= @figurine.description %></li>
   <li><%= @figurine.supplier.name %></li>
 </ul>
+<%= link_to "Add some new images for this figurine!", "/images/new?id=#{@figurine.id}" %>
+<p></p>
 <a href="/figurines">Back to figurines</a>
 <p></p>
 <%= link_to "Edit the info for this figurine", "/figurine/#{@figurine.id}/edit" %>
