@@ -7,6 +7,19 @@
   <li><%= @figurine.description %></li>
   <li><%= @figurine.supplier.name %></li>
 </ul>
+<%= form_tag '/orders', method: :post do %>
+  <div class="form-group">
+    <%= label_tag :quantity %>
+    <%= text_field_tag(:quantity, 1, {class: "form-control" })%>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag(:figurine_id, @figurine.id, {class: "hidden"}) %>
+  </div>
+  <div>
+    <%= button_tag 'BUYBUYBUY!', class: "btn btn-default" %>
+  </div>
+<% end %>
+<p></p>
 <%= link_to "Add some new images for this figurine!", "/images/new?id=#{@figurine.id}" %>
 <p></p>
 <a href="/figurines">Back to figurines</a>
