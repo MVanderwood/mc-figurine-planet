@@ -13,6 +13,6 @@ class Order < ActiveRecord::Base
   end
 
   def total_calc
-    total_calc = tax_calc * subtotal_calc
+    total_calc = tax_calc + subtotal_calc + figurine.supplier.shipping_cost
   end  
 end

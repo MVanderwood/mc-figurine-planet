@@ -7,7 +7,7 @@
   <li><%= @figurine.description %></li>
   <li><%= @figurine.supplier.name %></li>
 </ul>
-<%= form_tag '/orders', method: :post do %>
+<%= form_tag "/orders", method: :post do %>
   <div class="form-group">
     <%= label_tag :quantity %>
     <%= text_field_tag(:quantity, 1, {class: "form-control" })%>
