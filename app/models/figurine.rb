@@ -4,7 +4,6 @@ class Figurine < ActiveRecord::Base
   has_many :images
   has_many :orders
   
-  SALES_TAX = 0.09
   DISCOUNT_THRESHOLD = 2
 
   def discount

@@ -9,7 +9,7 @@
         <p><b><%= figurine.name %></b></p>
         <%= image_tag "#{figurine.images[0].url}" %>
         <ul>
-          <li>Price: $<%= figurine.price_with_tax %> </li>
+          <li>Price: $<%= figurine.price %> </li>
           <li>Description: </li>
           <p class="item_description"><%= figurine.description %></p>
           <a href="/figurines/<%= figurine.id %>/buy">Click here to buy!</a><br>
