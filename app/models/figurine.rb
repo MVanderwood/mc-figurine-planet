@@ -1,6 +1,8 @@
 class Figurine < ActiveRecord::Base
+  belongs_to :user
   belongs_to :supplier
   has_many :images
+  has_many :orders
   
   SALES_TAX = 0.09
   DISCOUNT_THRESHOLD = 2
@@ -21,5 +23,4 @@ class Figurine < ActiveRecord::Base
   def price_with_tax
     (price + tax).to_s
   end
-
 end
