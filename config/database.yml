@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: mc-figurine-planet_production
-  username: mc-figurine-planet
-  password: <%= ENV['MC-FIGURINE-PLANET_DATABASE_PASSWORD'] %>
+  database: mc-figurine-planet-production
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
