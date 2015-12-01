@@ -3,6 +3,8 @@ class Figurine < ActiveRecord::Base
   belongs_to :supplier
   has_many :images
   has_many :orders
+  has_many :categorized_figurines
+  has_many :categories, through: :categorized_figurines
   
   DISCOUNT_THRESHOLD = 2
 

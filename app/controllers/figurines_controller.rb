@@ -3,6 +3,11 @@ class FigurinesController < ApplicationController
   def index
     if params[:search] 
       @figurines = Figurine.where("name LIKE ?", "%#{params[:search]}%")
+      Category.where("name LIKE ?", "%#{params[:search]}%").each do |category|
+        category.figurines.each do |figurine|
+          @figurines << figurine
+        end
+      end
     elsif params[:sort_by] == "discount"
       @figurines = Figurine.where("price <= ?", 10)
     elsif params[:sort_by] && params[:sort_order]

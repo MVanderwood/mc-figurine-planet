@@ -28,3 +28,10 @@
 <p></p>
 <%= link_to "Delete this figurine (oh noes O:)", "/figurine/#{@figurine.id}", method: :delete %>
 
+<h4>Categories:</h4>
+<ul>
+  <% @figurine.categories.each do |category| %>
+    <li><%= link_to "#{category.name}", "/categories/#{category.name}" %></li>
+  <% end %>
+</ul>
+
