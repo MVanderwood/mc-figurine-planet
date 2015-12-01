@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
       quantity: params[:quantity].to_i,
       figurine_id: params[:figurine_id],
       })
-    order.save({
+    order = Order.create({
       quantity: order.quantity,
       figurine_id: order.figurine_id,
       user_id: current_user.id,
