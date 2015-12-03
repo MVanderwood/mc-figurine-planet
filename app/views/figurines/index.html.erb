@@ -6,7 +6,7 @@
   <% @figurines.each do |figurine| %>
     <div class="col-md-4">
       <div class="well">
-        <p><b><%= figurine.name %></b></p>
+        <h3><%= figurine.name %></b></h3>
         <%= image_tag "#{figurine.images[0].url}" %>
         <ul>
           <li>Price: $<%= figurine.price %> </li>

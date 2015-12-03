@@ -1,0 +1,8 @@
+<h1>CART</h1>
+<ul>
+  <% @carted_figurines.each do |carted_figurine| %>
+    <li><b><%= carted_figurine.figurine.name %></b> <%= link_to 'Remove', "/cart/#{carted_figurine.id}", method: :delete %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Checkout", '/orders/create', method: :post %>

@@ -1,0 +1,13 @@
+class CreateCartedProducts < ActiveRecord::Migration
+  def change
+    create_table :carted_figurines do |t|
+      t.integer :user_id
+      t.integer :figurine_id
+      t.integer :quantity
+      t.string :status
+      t.integer :order_id
+
+      t.timestamps null: false
+    end
+  end
+end

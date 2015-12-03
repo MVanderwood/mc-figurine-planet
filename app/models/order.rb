@@ -1,18 +1,23 @@
 class Order < ActiveRecord::Base
   belongs_to :user
-  belongs_to :figurine
+  has_many :carted_figurines
+  has_many :figurines, through: :carted_figurines
 
   SALES_TAX = 0.09
 
   def subtotal_calc
-    subtotal_calc = figurine.price * quantity
+    subtotal = 0
+    carted_figurines.each do |carted_figurine|
+      subtotal += carted_figurine.figurine.price * carted_figurine.quantity
+    end
+    subtotal
   end
 
   def tax_calc
-    tax_calc = subtotal_calc * SALES_TAX
+    tax = subtotal_calc * SALES_TAX
   end
 
   def total_calc
-    total_calc = tax_calc + subtotal_calc + figurine.supplier.shipping_cost
+    total = tax_calc + subtotal_calc
   end  
 end

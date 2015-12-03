@@ -13,8 +13,12 @@ Rails.application.routes.draw do
   get '/images/new' => 'images#new'
   post '/images/create' => 'images#create'
 
-  post '/orders' => 'orders#create'
+  post '/orders/create' => 'orders#create'
   get '/orders/:id' => 'orders#show'
 
   get '/categories/:category' => 'categories#show'
+
+  get '/cart' => 'carted_figurines#index'
+  post '/cart' => 'carted_figurines#create'
+  delete '/cart/:id' => 'carted_figurines#destroy'
 end

@@ -1,6 +1,12 @@
-<h3>Order id: <%= @order.id %></h3>
-<h3>Quantity: <%= @order.quantity %></h3>
-<h3>Subtotal: <%= number_to_currency(@order.subtotal) %></h3>
-<h3>Tax: <%= number_to_currency(@order.tax) %></h3>
-<h3>Shipping cost: <%= number_to_currency(@order.figurine.supplier.shipping_cost) %></h3>
-<h3>Total: <%= number_to_currency(@order.total) %></h3>
+<h3>Review your order:</h3>
+<ul>
+  <% @order.carted_figurines.each do |carted_figurine| %>
+    
+    <li>You successfully purchased <%= carted_figurine.quantity %> <%= carted_figurine.figurine.name %>s!</li>
+
+  <% end %>
+</ul>
+
+<h4>Subtotal: <%= number_to_currency(@order.subtotal) %></h4>
+<h4>Tax: <%= number_to_currency(@order.tax) %></h4>
+<h4>Total: <%= number_to_currency(@order.total) %></h4>

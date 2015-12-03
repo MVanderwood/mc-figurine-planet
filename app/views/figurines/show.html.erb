@@ -7,7 +7,7 @@
   <li><%= @figurine.description %></li>
   <li><%= @figurine.supplier.name %></li>
 </ul>
-<%= form_tag "/orders", method: :post do %>
+<%= form_tag "/cart", method: :post do %>
   <div class="form-group">
     <%= label_tag :quantity %>
     <%= text_field_tag(:quantity, 1, {class: "form-control" })%>
@@ -16,7 +16,7 @@
     <%= text_field_tag(:figurine_id, @figurine.id, {class: "hidden"}) %>
   </div>
   <div>
-    <%= button_tag 'BUYBUYBUY!', class: "btn btn-default" %>
+    <%= button_tag 'Add to Cart', class: "btn btn-default" %>
   </div>
 <% end %>
 <p></p>

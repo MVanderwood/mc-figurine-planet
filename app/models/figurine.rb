@@ -2,7 +2,8 @@ class Figurine < ActiveRecord::Base
   belongs_to :user
   belongs_to :supplier
   has_many :images
-  has_many :orders
+  has_many :carted_figurines
+  has_many :orders, through: :carted_figurines
   has_many :categorized_figurines
   has_many :categories, through: :categorized_figurines
   
