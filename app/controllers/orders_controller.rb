@@ -17,3 +17,40 @@ class OrdersController < ApplicationController
     @order = Order.find_by(id: params[:id])
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def each
+  if self.class == Array
+    count.times do |index|
+      yield self[index]
+    end
+    
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+

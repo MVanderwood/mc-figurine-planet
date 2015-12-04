@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   get '/figurines' => 'figurines#index'
   get '/figurines/new' => 'figurines#new'
   post '/figurines' => 'figurines#create'
-  get '/figurines/:id' => 'figurines#show'
-  get '/figurines/:id/buy' => 'figurines#buy' 
   get '/figurines/:id/edit' => 'figurines#edit'
+  get '/figurines/:id' => 'figurines#show'
   patch '/figurines/:id' => 'figurines#update'
   delete '/figurines/:id' => 'figurines#destroy'
 

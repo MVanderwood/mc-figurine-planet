@@ -1,4 +1,5 @@
 class FigurinesController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show]
 
   def index
     if params[:search] 
@@ -49,14 +50,12 @@ class FigurinesController < ApplicationController
   end
 
   def update
-    figurine = Figurine.find_by(id: params[:id])
-    figurine.update({
-      name: params[:name],
-      price: params[:price],
-      description: params[:description],
-      image: params[:image]
-      })
-    redirect_to "/figurine/#{figurine.id}"
+    @figurine = Figurine.find_by(id: params[:id])
+    if @figurine.update({name: params[:name], price: params[:price], description: params[:description]})
+    redirect_to "/figurines/#{figurine.id}"
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -64,4 +63,11 @@ class FigurinesController < ApplicationController
     redirect_to "/figurines"
   end
 
+  private
+
+  def authenticate_admin!
+    unless user_signed_in? && current_user.Admin
+      redirect_to '/'
+    end
+  end
 end

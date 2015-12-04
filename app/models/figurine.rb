@@ -6,6 +6,10 @@ class Figurine < ActiveRecord::Base
   has_many :orders, through: :carted_figurines
   has_many :categorized_figurines
   has_many :categories, through: :categorized_figurines
+
+  validates :name, presence: true
+  validates :price, presence: true
+  validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   
   DISCOUNT_THRESHOLD = 2
 

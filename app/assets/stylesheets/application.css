@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+#admin-bar {
+  background-color: #DB4655;
+  color: white;
+}

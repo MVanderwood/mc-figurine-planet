@@ -3,6 +3,9 @@ class Order < ActiveRecord::Base
   has_many :carted_figurines
   has_many :figurines, through: :carted_figurines
 
+  validates :total, presence: true
+  validates :
+
   SALES_TAX = 0.09
 
   def subtotal_calc
