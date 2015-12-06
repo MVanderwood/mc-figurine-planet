@@ -16,6 +16,9 @@
     <%= text_field_tag :image, nil, class: "form-control" , placeholder: "Copy your image url here" %>
   </div>
   <div>
+    <%= collection_select :supplier, :supplier_id, @suppliers, :id, :name %>
+  </div>
+  <div>
     <%= button_tag 'Send', class: "btn btn-default" %>
   </div>
 <% end %>

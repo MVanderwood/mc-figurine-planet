@@ -1,6 +1,9 @@
 <h1>Suppliers:</h1>
 <% @suppliers.each do |supplier| %>
   <ul>
+    <% unless supplier.active %>
+      <li></li>
+    <li id="non-active-supplier"></li>
     <li>Name: <%= link_to supplier.name, "/suppliers/#{supplier.id}" %></li>
     <li>Email: <%= supplier.email %></li>
     <li>Phone: <%= supplier.phone %></li>

@@ -30,7 +30,7 @@ class FigurinesController < ApplicationController
   end
 
   def new
-
+    @suppliers = Supplier.where(active: true)
   end
 
   def create
@@ -38,6 +38,7 @@ class FigurinesController < ApplicationController
       name: params[:name],
       price: params[:price],
       description: params[:description],
+      supplier_id: params[:supplier][:supplier_id]
       })
     Image.create({
       url: param[:image],
