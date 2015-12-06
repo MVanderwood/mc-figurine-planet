@@ -20,4 +20,12 @@ Rails.application.routes.draw do
   get '/cart' => 'carted_figurines#index'
   post '/cart' => 'carted_figurines#create'
   delete '/cart/:id' => 'carted_figurines#destroy'
+
+  get '/suppliers' => 'suppliers#index'
+  get '/suppliers/new' => 'suppliers#new'
+  post '/suppliers/' => 'suppliers#create'
+  get '/suppliers/:id/edit' => 'suppliers#edit'
+  get '/suppliers/:id' => 'suppliers#show', as: :supplier
+  patch '/suppliers/:id' => 'suppliers#update'
+  delete '/suppliers/:id' => 'suppliers#destroy'
 end

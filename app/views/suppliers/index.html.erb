@@ -1,0 +1,12 @@
+<h1>Suppliers:</h1>
+<% @suppliers.each do |supplier| %>
+  <ul>
+    <li>Name: <%= link_to supplier.name, "/suppliers/#{supplier.id}" %></li>
+    <li>Email: <%= supplier.email %></li>
+    <li>Phone: <%= supplier.phone %></li>
+    <li>Website: <%= link_to supplier.email, supplier.email %></li>
+    <li>Shipping Cost: $<%= supplier.shipping_cost %></li>
+    <li><%= link_to "Edit Supplier", "/suppliers/#{supplier.id}/edit" %></li>
+  </ul>
+<% end %>
+<%= link_to "Add a supplier", "/suppliers/new" %>
